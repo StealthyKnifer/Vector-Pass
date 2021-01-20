@@ -1,0 +1,43 @@
+V1 Features:
+1.Mini Batch GD
+2.Adam optimizer
+3.RMSProp
+4.Dropout Regularization
+5.Gradient Descent With Momentum
+6.Multiclass classification
++ many more.
+
+************
+SECTION I: -
+************
+How to Use:
+1.First intialize the model.
+	model = FONN(mini_batch_size,classes) // classes=2 for binary classification,mini_batchsize=None by default
+2.Fit the Model
+	model.fit(X,Y,onehot) // X and Y are the inputs and outputs respectively and onehot is a boolean that you can set to True
+				 if you want to one hot encode the output
+3.Add Layers
+	model.addLayer(layer_dim,activation,dropout) //for now supported activations are mentioned in SectionII
+4.Compile the model
+	model.compile(lossFunc,optimizer,lr,beta1,beta2,epsilon) // lr=0.03, beta1=0.9, beta2=0.999, epsilon=1e-8 by default no need
+								    to edit these except for lr.Check SectionII for more details.
+5.Train the model
+	model.train(epochs,get_cost) // get_cost is boolean used to return the cost and accuracy as a tuple
+6.Predict using the model
+	model.predict(X_test,Y_test,onehot) // prints the test set accuracy
+7.Plot cost and accuracy
+	model.plotCostAndAccuracy() //plots cost and accuracy in two separate graphs
+
+*************
+SECTION II: -
+*************
+1.Supported Optimizers
+	a)Gradient Descent(used as gradient_descent)
+	b)Gradient Descent with Momentum(used as gradient_descent_momentum)
+	c)RMSProp(used as RMSProp)
+	d)Adam(used as Adam)
+Note:- Use a lower learning rate like 0.0001 for Adam and RMSProp. I would prefer you to not edit beta1, beta2, epsilon unless changing
+       the learning rate does not help
+2.Supported Loss Functions
+	a)Binary Crossentropy(used as binary_crossentropy)
+	b)Categorical Crossentropy(used as categorical_crossentropy)
